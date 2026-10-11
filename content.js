@@ -15,7 +15,7 @@
         'Microsoft YaHei', 'Microsoft YaHei UI', '微软雅黑',
         'DengXian', '等线',
         'MiSans', 'MiSans VF', 'MiSans Latin', 'MiSans TC', 'MiSans HK', '小米字体',
-        'PingFang SC', 'PingFangSC', '苹方', '苹果字体',
+        'PingFang SC', 'PingFangSC', '苹方', '苹果字体','SF Pro SC','SF Pro Text','Helvetica Neue',
         'Hiragino Sans GB',
         'SimSun', '宋体', 'NSimSun', '新宋体',
         'SimHei', '黑体',
@@ -89,6 +89,145 @@
 
     // Build a Set for O(1) lookup (lowercased)
     const targetFontSet = new Set(targetFonts.map(f => f.toLowerCase()));
+
+    const DISABLED_FONT_FAMILY = '__font-force-disabled__';
+    const disabledFontFaces = [];
+    const disabledRuntimeFontFaces = [];
+
+    function normalizeFontFamily(value) {
+        return (value || '').trim().replace(/['"]/g, '').toLowerCase();
+    }
+
+    function disableFontFaceRules(ruleList) {
+        Array.from(ruleList).forEach(function(rule) {
+            if (rule.cssRules) {
+                disableFontFaceRules(rule.cssRules);
+                return;
+            }
+            if (typeof CSSFontFaceRule === 'undefined' || !(rule instanceof CSSFontFaceRule)) return;
+            let family = '';
+            try {
+                family = normalizeFontFamily(rule.style.getPropertyValue('font-family'));
+            } catch (e) {
+                return;
+            }
+            if (!family || !targetFontSet.has(family)) return;
+            try {
+                const originalFamily = rule.style.getPropertyValue('font-family');
+                rule.style.setProperty('font-family', '"' + DISABLED_FONT_FAMILY + '"');
+                disabledFontFaces.push({ rule: rule, originalFamily: originalFamily });
+            } catch (e) {}
+        });
+    }
+
+    function scanSheetForFontFaces(sheet) {
+        // Never rewrite our own neutralizer rules
+        if (sheet && sheet.ownerNode && sheet.ownerNode.id === NEUTRALIZER_ID) return;
+        try {
+            if (sheet && sheet.cssRules) disableFontFaceRules(sheet.cssRules);
+        } catch (e) {}
+    }
+
+    function disableCustomFontFaces() {
+        ensureFontFaceNeutralizer();
+        Array.from(document.styleSheets).forEach(scanSheetForFontFaces);
+        // Constructed stylesheets adopted by the document (frameworks, web components)
+        Array.from(document.adoptedStyleSheets || []).forEach(scanSheetForFontFaces);
+        // Styles inside open shadow roots
+        document.querySelectorAll('*').forEach(function(el) {
+            const sr = el.shadowRoot;
+            if (!sr) return;
+            Array.from(sr.adoptedStyleSheets || []).forEach(scanSheetForFontFaces);
+            sr.querySelectorAll('style').forEach(function(st) {
+                if (st.sheet) scanSheetForFontFaces(st.sheet);
+            });
+        });
+        if (document.fonts) {
+            Array.from(document.fonts).forEach(function(face) {
+                let family = '';
+                try {
+                    family = normalizeFontFamily(face.family);
+                } catch (e) {
+                    return;
+                }
+                if (!family || !targetFontSet.has(family)) return;
+                try {
+                    if (document.fonts.delete(face)) {
+                        disabledRuntimeFontFaces.push(face);
+                    }
+                } catch (e) {}
+            });
+        }
+    }
+
+    function restoreCustomFontFaces() {
+        removeFontFaceNeutralizer();
+        while (disabledFontFaces.length) {
+            const entry = disabledFontFaces.pop();
+            try {
+                entry.rule.style.setProperty('font-family', entry.originalFamily);
+            } catch (e) {}
+        }
+        if (document.fonts) {
+            while (disabledRuntimeFontFaces.length) {
+                const face = disabledRuntimeFontFaces.pop();
+                try {
+                    document.fonts.add(face);
+                } catch (e) {}
+            }
+        }
+    }
+
+    // ── Font-face neutralizer ──
+    // A stylesheet kept as the LAST node of <html>. For every target family it
+    // defines a @font-face whose src points at a non-existent local font and
+    // whose descriptors (weight/style/stretch/unicode-range) match everything.
+    // Equally-matching @font-face rules resolve last-wins in document order,
+    // so this neutralizes site font-faces we cannot touch via CSSOM
+    // (e.g. cross-origin CDN sheets) and covers shadow DOM too.
+    const NEUTRALIZER_ID = 'force-font-neutralizer';
+
+    function buildNeutralizerCSS() {
+        // Live-face remap: Blink falls through dead (local-miss) faces to the
+        // next live face of the family, so a broken-src face cannot beat a
+        // site's live face. Instead we register a LIVE face that resolves the
+        // family to a real system font. With exact matching descriptors the
+        // last-defined rule (ours) wins the slot and renders a system font.
+        const remapSrc = ['Segoe UI', 'PingFang SC', 'Noto Sans', 'Roboto',
+            'Helvetica Neue'].map(function(l) {
+            return 'local("' + l + '")';
+        }).join(',');
+        const weights = ['300', '400', '500', '700', '900'];
+        const styles = ['normal', 'italic'];
+        return targetFonts.map(function(name) {
+            const family = '"' + name.replace(/["\\]/g, '') + '"';
+            return weights.map(function(w) {
+                return styles.map(function(s) {
+                    return '@font-face{font-family:' + family + ';src:' + remapSrc +
+                        ';font-weight:' + w + ';font-style:' + s + ';unicode-range:U+0-10FFFF;}';
+                }).join('');
+            }).join('');
+        }).join('');
+    }
+
+    function ensureFontFaceNeutralizer() {
+        let el = document.getElementById(NEUTRALIZER_ID);
+        if (!el) {
+            el = document.createElement('style');
+            el.id = NEUTRALIZER_ID;
+        }
+        const css = buildNeutralizerCSS();
+        if (el.textContent !== css) el.textContent = css;
+        const root = document.documentElement;
+        if (root && (el.parentNode !== root || root.lastElementChild !== el)) {
+            root.appendChild(el);
+        }
+    }
+
+    function removeFontFaceNeutralizer() {
+        const el = document.getElementById(NEUTRALIZER_ID);
+        if (el) el.remove();
+    }
 
     // ── Site blocklist ──
     // Excluded sites (e.g. AI chat apps such as ChatGPT / Claude) keep
@@ -195,6 +334,7 @@
     function applyFontForce() {
         if (!isEnabled) return;
         scanAndMarkTargetFonts();
+        disableCustomFontFaces();
     }
 
     // Remove font forcing
@@ -202,6 +342,7 @@
         const style = document.getElementById('force-font-style');
         if (style) style.remove();
         clearForceFontMarkers();
+        restoreCustomFontFaces();
     }
 
     // Start observing dynamic changes
@@ -216,6 +357,16 @@
                     mutation.addedNodes.forEach(function(node) {
                         if (node.nodeType === Node.ELEMENT_NODE) {
                             scanAndMarkTargetFonts(node);
+                            if (node.tagName === 'STYLE' ||
+                                (node.tagName === 'LINK' && node.getAttribute('rel') === 'stylesheet')) {
+                                disableCustomFontFaces();
+                                if (node.tagName === 'LINK') {
+                                    // cssRules is empty until the sheet finishes loading
+                                    node.addEventListener('load', function() {
+                                        if (isEnabled) setTimeout(disableCustomFontFaces, 0);
+                                    }, { once: true });
+                                }
+                            }
                         }
                     });
                 }
@@ -263,6 +414,12 @@
                             (node.tagName.toLowerCase() === 'style' ||
                              (node.tagName.toLowerCase() === 'link' && node.getAttribute('rel') === 'stylesheet'))) {
                             cssChanged = true;
+                            if (node.tagName.toLowerCase() === 'link') {
+                                // cssRules is empty until the sheet finishes loading
+                                node.addEventListener('load', function() {
+                                    if (isEnabled) setTimeout(disableCustomFontFaces, 0);
+                                }, { once: true });
+                            }
                         }
                     });
                 } else if (mutation.type === 'characterData' || mutation.type === 'attributes') {
@@ -298,10 +455,20 @@
             });
         }
 
+        // Catch stylesheets already present before the observers attached
+        function initialDisablePass() {
+            if (isEnabled) disableCustomFontFaces();
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initialDisablePass, { once: true });
+        } else {
+            initialDisablePass();
+        }
+
         // Periodic re-scan
         if (!checkInterval) {
             checkInterval = setInterval(function() {
-                if (isEnabled) scanAndMarkTargetFonts();
+                if (isEnabled) applyFontForce();
             }, 3000);
         }
 
