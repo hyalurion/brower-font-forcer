@@ -39,6 +39,10 @@
     "message": "Šrifto standartizacija išjungta",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Neįtrauktas tinklalapis — šriftų standartizavimas čia išjungtas",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Versija",
     "description": "Version label"

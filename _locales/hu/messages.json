@@ -39,6 +39,10 @@
     "message": "Betűtípus-szabványosítás letiltva",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Kizárt webhely — a betűtípus-szabványosítás itt ki van kapcsolva",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Verzió",
     "description": "Version label"

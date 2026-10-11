@@ -39,6 +39,10 @@
     "message": "Standarisasi font dinonaktifkan",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Situs dikecualikan — standardisasi font nonaktif di sini",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Versi",
     "description": "Version label"

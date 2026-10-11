@@ -39,6 +39,10 @@
     "message": "Стандартизацію шрифтів вимкнено",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Виключений сайт — стандартизацію шрифтів тут вимкнено",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Версія",
     "description": "Version label"

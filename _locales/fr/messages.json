@@ -39,6 +39,10 @@
     "message": "Standardisation des polices désactivée",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Site exclu — la standardisation des polices est désactivée ici",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Version",
     "description": "Version label"

@@ -39,6 +39,10 @@
     "message": "Standaryzacja czcionek wyłączona",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Wykluczona strona — standaryzacja czcionek jest tutaj wyłączona",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Wersja",
     "description": "Version label"

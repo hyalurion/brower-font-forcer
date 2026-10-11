@@ -39,6 +39,10 @@
     "message": "ປິດການກຳນົດມາດຕະຖານຟອນແລ້ວ",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "ເວັບໄຊທີ່ຍົກເວັ້ນ — ການກຳນົດມາດຕະຖານຕົວອັກສອນຖືກປິດຢູ່ທີ່ນີ້",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "ເວີຊັນ",
     "description": "Version label"

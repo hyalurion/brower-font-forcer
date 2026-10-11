@@ -39,6 +39,10 @@
     "message": "ဖောင့်စံသတ်မှတ်ခြင်းကို ပိတ်ထားသည်",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "ချန်လှပ်ထားသော ဆိုက် — ဤနေရာတွင် ဖောင့်စံညီမှု ပိတ်ထားသည်",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "ဗားရှင်း",
     "description": "Version label"

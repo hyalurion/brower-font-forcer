@@ -39,6 +39,10 @@
     "message": "Fonta standartizācija ir atspējota",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Izslēgta vietne — fontu standartizācija šeit ir izslēgta",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Versija",
     "description": "Version label"

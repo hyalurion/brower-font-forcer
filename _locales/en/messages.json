@@ -39,6 +39,10 @@
     "message": "Font standardization disabled",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Excluded site — font standardization is off here",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Version",
     "description": "Version label"

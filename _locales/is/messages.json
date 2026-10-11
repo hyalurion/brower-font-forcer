@@ -39,6 +39,10 @@
     "message": "Leturstöðlun óvirk",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Undantekin vefsíða — leturstöðlun er slökkt hér",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Útgáfa",
     "description": "Version label"

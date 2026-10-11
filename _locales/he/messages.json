@@ -39,6 +39,10 @@
     "message": "תקנון גופנים מושבת",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "אתר מוחרג — סטנדרטיזציה של גופנים כבויה כאן",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "גרסה",
     "description": "Version label"

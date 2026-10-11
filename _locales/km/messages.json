@@ -39,6 +39,10 @@
     "message": "បានបិទការកំណត់ស្តង់ដារពុម្ពអក្សរ",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "គេហទំព័រដែលបានដកចេញ — ការធ្វើឱ្យពុម្ពអក្សរប្រក្រតីគ្នាត្រូវបានបិទនៅទីនេះ",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "កំណែ",
     "description": "Version label"

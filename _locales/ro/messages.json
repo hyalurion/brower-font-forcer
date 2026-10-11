@@ -39,6 +39,10 @@
     "message": "Standardizarea fonturilor dezactivată",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Site exclus — standardizarea fonturilor este dezactivată aici",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Versiune",
     "description": "Version label"

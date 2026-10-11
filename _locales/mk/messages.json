@@ -39,6 +39,10 @@
     "message": "Стандардизацијата на фонтови е оневозможена",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Исклучен сајт — стандардизацијата на фонтови е исклучена тука",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Верзија",
     "description": "Version label"

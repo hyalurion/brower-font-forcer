@@ -39,6 +39,10 @@
     "message": "Penyeragaman fon dinyahaktifkan",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Laman dikecualikan — penstandardan fon dimatikan di sini",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Versi",
     "description": "Version label"

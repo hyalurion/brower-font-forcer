@@ -39,6 +39,10 @@
     "message": "استانداردسازی فونت غیرفعال شد",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "سایت مستثنا — استانداردسازی فونت این‌جا خاموش است",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "نسخه",
     "description": "Version label"

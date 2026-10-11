@@ -39,6 +39,10 @@
     "message": "Η τυποποίηση γραμματοσειράς είναι απενεργοποιημένη",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Εξαιρεμένος ιστότοπος — η τυποποίηση γραμματοσειρών είναι απενεργοποιημένη εδώ",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Έκδοση",
     "description": "Version label"

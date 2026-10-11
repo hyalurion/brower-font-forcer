@@ -39,6 +39,10 @@
     "message": "फ़ॉन्ट मानकीकरण अक्षम",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "अपवर्जित साइट — यहाँ फ़ॉन्ट मानकीकरण बंद है",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "संस्करण",
     "description": "Version label"

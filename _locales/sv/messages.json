@@ -39,6 +39,10 @@
     "message": "Typsnittsstandardisering inaktiverad",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Undantagen webbplats — typsnittsstandardisering är av här",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Version",
     "description": "Version label"

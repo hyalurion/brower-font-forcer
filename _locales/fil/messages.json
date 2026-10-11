@@ -39,6 +39,10 @@
     "message": "Hindi pinagana ang pag-standardisa ng font",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Nakasiping na site — naka-off ang font standardization dito",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Bersyon",
     "description": "Version label"

@@ -39,6 +39,10 @@
     "message": "字型標準化已停用",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "已排除的網站 — 此處不啟用字型標準化",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "版本",
     "description": "Version label"

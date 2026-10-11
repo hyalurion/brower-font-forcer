@@ -39,6 +39,10 @@
     "message": "Skrifttypestandardisering deaktiveret",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Ekskluderet websted — skrifttypestandardisering er slået fra her",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Version",
     "description": "Version label"

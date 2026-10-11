@@ -39,6 +39,10 @@
     "message": "Yazı tipi standartlaştırması devre dışı",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Hariç tutulan site — yazı tipi standartlaştırması burada kapalı",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Sürüm",
     "description": "Version label"

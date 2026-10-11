@@ -39,6 +39,10 @@
     "message": "Fondi standardimine on keelatud",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Välja arvatud sait — fondi standardiseerimine on siin välja lülitatud",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Versioon",
     "description": "Version label"

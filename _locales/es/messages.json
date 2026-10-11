@@ -39,6 +39,10 @@
     "message": "Estandarización de fuentes desactivada",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Sitio excluido: la estandarización de fuentes está desactivada aquí",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Versión",
     "description": "Version label"

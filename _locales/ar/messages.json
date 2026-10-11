@@ -39,6 +39,10 @@
     "message": "تم تعطيل توحيد الخطوط",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "موقع مستثنى — توحيد الخطوط معطل هنا",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "الإصدار",
     "description": "Version label"

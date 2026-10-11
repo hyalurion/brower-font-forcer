@@ -39,6 +39,10 @@
     "message": "Standardizacija pisave je onemogočena",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Izključeno spletno mesto — standardizacija pisav je tu izklopljena",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Različica",
     "description": "Version label"

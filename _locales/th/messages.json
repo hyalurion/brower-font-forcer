@@ -39,6 +39,10 @@
     "message": "ปิดใช้งานการปรับฟอนต์เป็นมาตรฐานแล้ว",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "เว็บที่ยกเว้น — การกำหนดมาตรฐานฟอนต์ปิดอยู่ที่นี่",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "เวอร์ชัน",
     "description": "Version label"

@@ -39,6 +39,10 @@
     "message": "Standardizace písma zakázána",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Vyloučený web — standardizace písem je zde vypnuta",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Verze",
     "description": "Version label"

@@ -39,6 +39,10 @@
     "message": "Estandardització de tipus de lletra desactivada",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Lloc exclòs — l'estandardització de tipus de lletra està desactivada aquí",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Versió",
     "description": "Version label"

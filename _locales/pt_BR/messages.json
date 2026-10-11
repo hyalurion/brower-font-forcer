@@ -39,6 +39,10 @@
     "message": "Padronização de fonte desativada",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Site excluído — a padronização de fontes está desativada aqui",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Versão",
     "description": "Version label"

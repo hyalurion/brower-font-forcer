@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "__MSG_extensionName__",
-  "version": "2026.8.16",
+  "version": "2026.10.11",
   "description": "__MSG_extensionDescription__",
   "default_locale": "en",
   "icons": {
@@ -20,8 +20,12 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
+      "exclude_matches": [
+        "*://*.chatgpt.com/*",
+        "*://*.claude.ai/*"
+      ],
       "css": ["content.css"],
-      "js": ["content.js"],
+      "js": ["blocked-sites.js", "content.js"],
       "run_at": "document_start"
     }
   ],

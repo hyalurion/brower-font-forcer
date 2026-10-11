@@ -39,6 +39,10 @@
     "message": "폰트 표준화가 비활성화됨",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "제외된 사이트 — 이 사이트에서는 글꼴 표준화가 꺼져 있습니다",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "버전",
     "description": "Version label"

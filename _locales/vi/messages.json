@@ -39,6 +39,10 @@
     "message": "Đã tắt tiêu chuẩn hóa phông chữ",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Trang web bị loại trừ — chuẩn hóa phông chữ đang tắt ở đây",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Phiên bản",
     "description": "Version label"

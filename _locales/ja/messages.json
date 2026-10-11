@@ -39,6 +39,10 @@
     "message": "フォント標準化が無効",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "除外サイト — ここではフォントの標準化はオフです",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "バージョン",
     "description": "Version label"

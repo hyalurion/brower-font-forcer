@@ -39,6 +39,10 @@
     "message": "Schriftstandardisierung deaktiviert",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Ausgeschlossene Website – Schriftstandardisierung ist hier deaktiviert",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Version",
     "description": "Version label"

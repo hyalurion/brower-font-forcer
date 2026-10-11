@@ -39,6 +39,10 @@
     "message": "Standardizimi i shkronjave i çaktivizuar",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "Sajt i përjashtuar — standardizimi i fonteve është i fikur këtu",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "Versioni",
     "description": "Version label"

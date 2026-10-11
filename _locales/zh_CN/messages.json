@@ -39,6 +39,10 @@
     "message": "字体标准化已禁用",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "已排除的网站 — 此处不启用字体标准化",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "版本",
     "description": "Version label"

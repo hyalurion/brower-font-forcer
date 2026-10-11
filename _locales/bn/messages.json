@@ -39,6 +39,10 @@
     "message": "ফন্ট মানসম্মতকরণ নিষ্ক্রিয়",
     "description": "Status when font forcing is disabled"
   },
+  "statusExcluded": {
+    "message": "বাদ দেওয়া সাইট — এখানে ফন্ট স্ট্যান্ডার্ডাইজেশন বন্ধ আছে",
+    "description": "Status when the current site is in the exclusion blocklist"
+  },
   "version": {
     "message": "সংস্করণ",
     "description": "Version label"
